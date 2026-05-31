@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gemini Sucks</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #1a1a1a;
+      color: #e8e8e8;
+      width: 260px;
+      padding: 0 0 12px;
+      user-select: none;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #b01c1c;
+      padding: 12px 14px;
+    }
+
+    .header img {
+      width: 28px;
+      height: 28px;
+    }
+
+    .header h1 {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      color: #fff;
+    }
+
+    .section {
+      padding: 12px 14px 0;
+    }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 8px;
+    }
+
+    .toggle-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    .toggle-row:last-child {
+      border-bottom: none;
+    }
+
+    .toggle-text {
+      flex: 1;
+    }
+
+    .toggle-text strong {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #e8e8e8;
+      margin-bottom: 2px;
+    }
+
+    .toggle-text span {
+      font-size: 11px;
+      color: #888;
+      line-height: 1.4;
+    }
+
+    /* Toggle switch */
+    .switch {
+      position: relative;
+      flex-shrink: 0;
+      width: 36px;
+      height: 20px;
+      margin-top: 1px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      position: absolute;
+    }
+
+    .slider {
+      position: absolute;
+      inset: 0;
+      background: #444;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .slider::before {
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      left: 3px;
+      top: 3px;
+      background: #fff;
+      border-radius: 50%;
+      transition: transform 0.2s;
+    }
+
+    input:checked + .slider {
+      background: #b01c1c;
+    }
+
+    input:checked + .slider::before {
+      transform: translateX(16px);
+    }
+
+    .status {
+      font-size: 11px;
+      text-align: center;
+      color: #555;
+      padding-top: 10px;
+    }
+
+    .status.saved {
+      color: #4caf50;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="icons/icon.svg" alt="" />
+    <h1>Gemini Sucks</h1>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Settings</div>
+
+    <div class="toggle-row">
+      <div class="toggle-text">
+        <strong>Inject <code>-ai</code> into queries</strong>
+        <span>Appends <code>-ai</code> to every search to filter AI-heavy results.</span>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="injectMinusAi" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="toggle-row">
+      <div class="toggle-text">
+        <strong>Force "Web" tab</strong>
+        <span>Adds <code>udm=14</code> to use the Web tab instead of All. Completely removes AI Overviews server-side, but skips rich features like image previews.</span>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="forceWebTab" />
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <div class="status" id="status">Changes saved automatically.</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+/*
+ * CSS-level hiding of Google AI Overview elements.
+ * Acts before JS content script fires, preventing any flash of AI content.
+ */
+
+/* AI Overview main container */
+.YzccFd,
+.e3Wgde,
+.L2CGJ,
+g-section-with-header,
+ai-overview,
+[data-async-type="aiOverview"],
+[data-attrid="wa:/description"],
+[jscontroller="g9E5Lb"],
+[data-q="aiOverview"],
+#m-x-content,
+
+/* AI Mode button in search bar */
+[aria-label="AI Mode"],
+
+/* "AI Overview" expandable block */
+.kGXBmd,
+.zVnDHd,
+.c2xzTb,
+.I6TXqe,
+
+/* Gemini / SGE wrapper divs */
+.ixZVDd,
+.WQiArd,
+.AiOverviewContainer {
+  display: none !important;
+}
