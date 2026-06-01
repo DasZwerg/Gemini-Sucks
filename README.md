@@ -33,3 +33,4 @@ The extension will stay active until you restart Firefox. For a permanent instal
 
 - Only plain web searches are modified (`tbm` parameter absent). Image, Video, News, and Shopping searches are left untouched.
 - The extension does not collect, transmit, or store any data.
+- Ironically, because I don't know how to code in JavaScript, or really anything other than bash / python, this was largely written by my self hosted AI.
