@@ -1,16 +1,13 @@
-# Gemini Sucks — Firefox Extension
+# Gemini Sucks - Firefox Extension
 
-A Firefox extension that aggressively removes Google AI Overviews and AI-generated content from search results using three layered approaches.
+A Firefox extension that aggressively removes Google AI Overviews and AI generated content from search results using three layered approaches.
 
 ## How It Works
 
-### Layer 1 — URL Parameter (`udm=14`)
-Intercepts every Google Search request via the `webRequest` API and injects `udm=14` into the URL. This switches Google to its **"Web"** filter tab, which is the most effective known method to completely suppress AI Overviews, knowledge panels, and SGE results before they're ever served.
-
-### Layer 2 — Query Term (`-ai`)
+### Layer 1 — Query Term (`-ai`)
 Appends `-ai` to every search query. This signals to Google's ranking engine to exclude AI-heavy content from results.
 
-### Layer 3 — CSS + DOM Removal (content script)
+### Layer 2 — CSS + DOM Removal (content script)
 A content script and injected stylesheet hide known AI Overview DOM elements using their CSS class names and `jscontroller` attributes. This is a belt-and-suspenders fallback for any AI content that slips through despite the URL parameters.
 
 ## Installation (Temporary / Developer)
@@ -20,15 +17,9 @@ A content script and injected stylesheet hide known AI Overview DOM elements usi
 3. Click **"Load Temporary Add-on..."**
 4. Select the `manifest.json` file from this directory
 
+## Prod Version Available on Firefox Extensions Page
+
 The extension will stay active until you restart Firefox. For a permanent install, the extension must be signed via [AMO](https://addons.mozilla.org).
-
-## Packaging for Distribution
-
-```bash
-zip -r gemini-sucks.xpi manifest.json background.js content.js content.css icons/
-```
-
-Then submit `gemini-sucks.xpi` to [addons.mozilla.org](https://addons.mozilla.org) for signing.
 
 ## Files
 
